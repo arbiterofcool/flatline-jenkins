@@ -1,0 +1,15 @@
+jenkins:
+  command: ./jenkins.sh
+  build: .
+  volumes:
+   - /var/lib/jenkins
+   - /var/lib/docker
+   - .:/code
+  ports:
+   - "8080:8080"
+   - "50000:50000"
+  privileged: true
+  environment:
+   - JENKINS_USERNAME=jenkins
+   - JENKINS_PASSWORD=jenkins
+   - PLUGINS_ENDPOINT=http://updates.jenkins-ci.org/latest/
