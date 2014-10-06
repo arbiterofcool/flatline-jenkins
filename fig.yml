@@ -1,5 +1,4 @@
 jenkins:
-  command: ./jenkins.sh
   build: .
   volumes:
    - /var/lib/jenkins
