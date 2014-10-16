@@ -20,8 +20,5 @@ fi
 
 chown -R jenkins $DATA
 
-mkdir -p /var/lib/jenkins/jobs/pull-seed-job-on-startup/workspace
-
-echo "Starting Jenkins daemon."
+echo "Starting process."
 exec setuser jenkins java -jar -Dhudson.diyChunking=false /usr/share/jenkins/jenkins.war >>/var/log/jenkins.log 2>&1
-

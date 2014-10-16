@@ -43,12 +43,11 @@ RUN pip install -U \
 ######### Starting Daemons #########
 
 # Install the Docker daemon.
-ADD ./wrapdocker /etc/my_init.d/wrapdocker
+RUN mkdir -p /etc/my_init.d/
+ADD wrapdocker /etc/my_init.d/wrapdocker
 RUN chmod +x /etc/my_init.d/wrapdocker
 
-# Add jobs
-ADD jobs /var/lib/jenkins/jobs
-
 # Setup Jenkins daemon
-RUN mkdir /etc/service/jenkins
+RUN mkdir -p /etc/service/jenkins
 ADD jenkins/run /etc/service/jenkins/run
+RUN chmod +x /etc/service/jenkins/run

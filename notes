@@ -1,0 +1,5 @@
+/var/lib/docker/devicemapper
+
+devmapper
+Sparce data
+docker -d --storage-opt dm.basesize=20G
